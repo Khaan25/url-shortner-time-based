@@ -1,6 +1,6 @@
 # Next.js 15 URL Shortener with App Router and Shadcn UI
 
-**Live Link:** [https://url-shortner-zia-unkey.vercel.app/](https://url-shortner-zia-unkey.vercel.app/)
+**Live Link:** [url-shortner-time-based-zia-unkey.vercel.app/](url-shortner-time-based-zia-unkey.vercel.app/)
 
 This project showcases a URL shortener service built with Next.js 15, leveraging the new App Router and the shadcn/ui component library. Additionally, it integrates with Unkey.com for enforcing rate limits and API key validation. It also provides tiered access to shortened URLs and introduces a time-based expiration feature, where URLs are automatically deleted one minute after creation.
 
