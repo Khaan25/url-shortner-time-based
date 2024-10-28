@@ -2,15 +2,16 @@
 
 **Live Link:** [https://url-shortner-zia-unkey.vercel.app/](https://url-shortner-zia-unkey.vercel.app/)
 
-This project showcases a URL shortener service built with Next.js 15, leveraging the new App Router and the shadcn/ui component library. Additionally, it integrates with Unkey.com for enforcing rate limits. It also provides tiered access to shortened URLs.
+This project showcases a URL shortener service built with Next.js 15, leveraging the new App Router and the shadcn/ui component library. Additionally, it integrates with Unkey.com for enforcing rate limits and API key validation. It also provides tiered access to shortened URLs and introduces a time-based expiration feature, where URLs are automatically deleted one minute after creation.
 
 ## Key Features
 
 - Next.js 15 with the new App Router
 - URL shortening with variable short URL lengths based on user tier
-- Rate limiting based on Unkey configurations
+- Rate limiting and API key validation based on Unkey configurations
 - Tiered access (basic and premium users)
 - UI components from the shadcn/ui library
+- Time-based URL expiration (1 minute after creation)
 
 ## Setup and Configuration
 
@@ -32,6 +33,7 @@ This project showcases a URL shortener service built with Next.js 15, leveraging
    ```
    NEXT_PUBLIC_BASE_URL=http://localhost:3000
    UNKEY_API_KEY=unkey_some_token
+   UNKEY_API_ID=api_some_id
    REDIS_URL=https://some-redis-url.upstash.io
    REDIS_TOKEN=some-redis-token
    ```
@@ -39,7 +41,7 @@ This project showcases a URL shortener service built with Next.js 15, leveraging
 3. Set up Unkey:
    - Register at [unkey.com](https://unkey.com)
    - Create a new API.
-   - Add the API key to the `.env` file.
+   - Add the API key and API ID to the `.env` file.
 
 4. Set up Upstash:
    - Register at [upstash.com](https://upstash.com)
@@ -65,6 +67,7 @@ This project showcases a URL shortener service built with Next.js 15, leveraging
 - Select your tier.
 - Copy the generated short URL and share it with others.
 - Access the original URL by navigating to `http://localhost:3000/{shortCode}`.
+- Note: URLs will expire and be automatically deleted one minute after creation.
 
 ## Tiered Access and Rate Limiting
 
