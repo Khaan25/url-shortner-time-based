@@ -1,6 +1,7 @@
 import { validateApiKey } from '@/lib/validation'
 import { deleteUrl, getOriginalUrl } from '@/utils/db'
 import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
 
 import { NextResponse } from 'next/server'
 
@@ -49,8 +50,7 @@ export async function GET(request: Request, segmentData: { params: Params }) {
   const originalUrl = await getOriginalUrl(shortCode)
 
   if (originalUrl) {
-    // Disable caching for the redirect response
-    return NextResponse.redirect(originalUrl, 301).headers.append('Cache-Control', 'no-cache, no-store, must-revalidate')
+    return redirect(originalUrl)
   } else {
     return NextResponse.json({ error: 'Short URL not found' }, { status: 404 })
   }
